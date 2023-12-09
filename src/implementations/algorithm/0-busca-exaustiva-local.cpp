@@ -70,16 +70,23 @@ vector<int> EncontrarCliqueMaximoLocal(vector<vector<int>> grafo, int numVertice
 // ------------------------------- MAIN --------------------------------------
 // ---------------------------------------------------------------------------
 
-vector<int> main() {
+int main(int argc, char* argv[]) {
 
+    if(argc != 3 ){
+      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 2 argumentos | Recebeu = " << argc << " argumentos \n";
+      return 1;
+    }
+
+    string filename = argv[1];
     string nomeArquivo = "grafo.txt";
-    int numVertices = 4;
+
+    int numVertices = stoi(argv[2]);
 
     vector<vector<int>> grafo = LerGrafo(nomeArquivo, numVertices);
     vector<int> cliqueMaximo =  EncontrarCliqueMaximoLocal(grafo,numVertices);
 
     displayResult("Busca Exaustiva Local", cliqueMaximo);
 
-    return cliqueMaximo ;
+    return 0;
 }
 
