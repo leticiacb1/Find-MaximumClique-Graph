@@ -3,8 +3,8 @@
 #include <fstream>
 #include<algorithm>
 
-#include "display-result.h"
-#include "ler-grafo.h"
+#include "../utils/display-result.h"
+#include "../utils/ler-grafo.h"
 
 using namespace std;
 
