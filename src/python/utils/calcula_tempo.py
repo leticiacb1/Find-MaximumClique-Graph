@@ -34,4 +34,3 @@ if __name__ == "__main__":
     else:
         calcula_tempo(algoritimo, filename_grafo ,debug = False)
     
-
