@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
     }
 
     string filename = argv[1];
-    string nomeArquivo = "grafo.txt";
+    string nomeArquivo = ""../../../data/graphs/grafo.txt"";
 
     int numVertices = stoi(argv[2]);
 
