@@ -114,13 +114,13 @@ void display_result(string choose_algorithm, vector<int> cliqueMaxima){
 
 int main(int argc, char* argv[]) {
 
-    if(argc != 2 ){
-      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 2 argumentos | Recebeu = " << argc << " argumentos \n";
+    if(argc != 3 ){
+      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 3 argumentos | Recebeu = " << argc << " argumentos \n";
       return 1;
     }
 
     string nomeArquivo = argv[1];
-    int numVertices;
+    int numVertices = stoi(argv[2]);
 
     // ------ Lê Grafo ------
     vector<vector<int>> grafo = LerGrafo(nomeArquivo, numVertices);

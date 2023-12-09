@@ -73,7 +73,7 @@ vector<int> EncontrarCliqueMaximoLocal(vector<vector<int>> grafo, int numVertice
 int main(int argc, char* argv[]) {
 
     if(argc != 3 ){
-      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 2 argumentos | Recebeu = " << argc << " argumentos \n";
+      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 3 argumentos | Recebeu = " << argc << " argumentos \n";
       return 1;
     }
 
