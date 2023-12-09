@@ -78,8 +78,6 @@ int main(int argc, char* argv[]) {
     }
 
     string filename = argv[1];
-    string nomeArquivo = ""../../../data/graphs/grafo.txt"";
-
     int numVertices = stoi(argv[2]);
 
     vector<vector<int>> grafo = LerGrafo(nomeArquivo, numVertices);
