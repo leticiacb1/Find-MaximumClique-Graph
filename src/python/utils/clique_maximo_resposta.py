@@ -6,9 +6,9 @@ def clique_maximo_resposta(nome_arquivo, debug = False):
         Utiliza uma biblioteca do python especializada para descobrir qual o clique máximo de um grafo.
     '''
 
-    if not os.path.exists(filename):
-        print(f"\n [ERROR] Arquivo {nome_arquivo} não existe! \n")  
-        return      
+    # if not os.path.exists(filename):
+    #     print(f"\n [ERROR] Arquivo {nome_arquivo} não existe! \n")  
+    #     return
 
     with open(nome_arquivo, 'r') as arquivo:
         next(arquivo)  
