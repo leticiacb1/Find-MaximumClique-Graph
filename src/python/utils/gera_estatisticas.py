@@ -74,7 +74,7 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
         'Clique Calculado': lista_valores_calculados,
         'Tamanho Esperado':  lista_tamanho_esperado,
         'Tamanho Calculado': lista_tamanho_calculado,
-        'Time (s)': lista_delta_time,
+        'Time (s) [algoritimo]': lista_delta_time,
         'Mesmo Tamanho ?': lista_mesmo_tamanho
     }
 
