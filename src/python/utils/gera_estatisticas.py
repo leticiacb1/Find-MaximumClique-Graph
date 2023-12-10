@@ -26,7 +26,7 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
     for command in lista_commandos:
         
         if(debug):
-            print(f" [COMANDO] {command} | [VERTICES] {command[]2}\n")
+            print(f" [COMANDO] {command} | [VERTICES] {command[2]}\n")
         
         executavel = command[0]
         filename_grafo = command[1]
