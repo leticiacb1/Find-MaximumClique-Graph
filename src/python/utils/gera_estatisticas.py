@@ -1,6 +1,8 @@
 
 from .clique_maximo_resposta import clique_maximo_resposta
 from .processa_stdout import pega_tamanho, pega_vertices_max_clique
+
+import time
 import subprocess
 import pandas as pd
 
@@ -22,11 +24,9 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
     lista_qtd_vertices = []
 
     lista_mesmo_tamanho = []
+    lista_delta_time = []
 
     for command in lista_commandos:
-        
-        if(debug):
-            print(f" [COMANDO] {command} | [VERTICES] {command[2]}\n")
         
         executavel = command[0]
         filename_grafo = command[1]
@@ -37,9 +37,17 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
         size_esperado = len(esperado)
 
         # ---- Resultado Obtido ----
+        start = time.perf_counter()
+        
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         stdout_result = result.stdout
-
+        
+        end = time.perf_counter()
+        
+        # Calcula delta time 
+        delta_time = end - start
+        
+        # Processa dado
         calculado = pega_vertices_max_clique(stdout_result)
         size_obtido = pega_tamanho(stdout_result)
 
@@ -50,7 +58,13 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
         lista_tamanho_calculado.append(len(calculado))
         lista_tamanho_esperado.append(len(esperado))
 
+        lista_delta_time.append(delta_time)
+
         lista_mesmo_tamanho.append("Sim" if (len(calculado) == len(esperado)) else "Não")
+
+        if(debug):
+            print(f" [COMANDO] {command} | [VERTICES] {command[2]}\n")
+            print("\n [TIMER] " + str(delta_time) + " segundos\n\n")
 
     # ---- Monta dataframe ----
     dados = {
@@ -60,6 +74,7 @@ def gera_estatisticas(algoritimo, lista_de_vertices, lista_commandos, arquivo_cs
         'Clique Calculado': lista_valores_calculados,
         'Tamanho Esperado':  lista_tamanho_esperado,
         'Tamanho Calculado': lista_tamanho_calculado,
+        'Time (s)': lista_delta_time,
         'Mesmo Tamanho ?': lista_mesmo_tamanho
     }
 
