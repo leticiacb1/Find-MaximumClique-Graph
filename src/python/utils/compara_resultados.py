@@ -1,6 +1,8 @@
-def calcula_esperado_e_calculado(command):
+from clique_maximo_resposta import clique_maximo_resposta
+
+def calcula_esperado_e_calculado(filename, command):
   # ---- Resultado Esperado ----
-  cliqueMaximo_esperado = cliqueMaximo_Resposta()
+  cliqueMaximo_esperado = clique_maximo_resposta(filename)
 
   # ---- Resultado Obtido ----
   result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -9,7 +11,7 @@ def calcula_esperado_e_calculado(command):
   return cliqueMaximo_esperado, clique_calculado
 
 
-def compara_resultados(lista_vertices, lista_commandos, algoritimos, arquivo_csv):
+def compara_resultados(lista_vertices, lista_commandos, algoritimos, grafo_files,  arquivo_csv):
   '''
     Monta uma tabela com a comparação dos resultados obtidos.
     Salva os dados em um excel.
@@ -26,8 +28,8 @@ def compara_resultados(lista_vertices, lista_commandos, algoritimos, arquivo_csv
   lista_vertices_df = []
 
   for command , algoritimo in zip(lista_commandos, algoritimos):
-    for vertices in lista_vertices:
-        calculado, esperado = calcula_esperado_e_calculado(command)
+    for vertices , grafo_file in zip(lista_vertices, grafo_files):
+        calculado, esperado = calcula_esperado_e_calculado(grafo_file, command)
 
         lista_valores_calculados.append(calculado)
         lista_valores_esperados.append(esperado)
