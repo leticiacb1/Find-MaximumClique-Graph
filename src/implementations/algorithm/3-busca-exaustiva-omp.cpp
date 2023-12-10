@@ -78,7 +78,7 @@ void EncontrarCliqueMaximoGlobal(vector<vector<int>>& grafo, vector<int>& candid
         EncontrarCliqueMaximoGlobal(grafo, novosCandidatos, cliqueAtual, cliqueMaximo);
 
         // --- Caso o vertice v não pertença a solução do clique máximo ---
-        cliqueAtual.pop_back();s
+        cliqueAtual.pop_back();
         EncontrarCliqueMaximoGlobal(grafo, candidatos, cliqueAtual, cliqueMaximo);
 
         candidatos.push_back(v);
