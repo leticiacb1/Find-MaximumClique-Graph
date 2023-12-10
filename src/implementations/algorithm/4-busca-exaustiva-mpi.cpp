@@ -4,6 +4,7 @@
 #include <fstream>
 #include<algorithm>
 #include <mpi.h>
+#include <chrono>
 
 #include "../utils/display-result.h"
 #include "../utils/ler-grafo.h"
@@ -101,6 +102,8 @@ int main(int argc, char** argv) {
 
 
     if(rank == 0 ){
+      start = chrono::high_resolution_clock::now();
+
       // ------ Processo Pai ------
       // ------ Lê Grafo ------
       grafo = LerGrafo(nomeArquivo, numVertices);
@@ -158,7 +161,13 @@ int main(int argc, char** argv) {
       }
 
       // ------ Mostra na tela ------
-      displayResult("Busca Exaustiva Global", cliqueMaximo);
+      displayResult("Busca Exaustiva MPI", cliqueMaximo);
+
+      auto end = chrono::high_resolution_clock::now();
+      chrono::duration<double> delta = end - start;
+
+      cout << "\n [TIMER] " << delta.count() << " segundos." << endl;
+
     }
 
     MPI_Finalize();

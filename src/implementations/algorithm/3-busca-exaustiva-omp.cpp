@@ -115,7 +115,7 @@ int main(int argc, char* argv[]) {
     EncontrarCliqueMaximoGlobal(grafo, candidatosInicias, cliqueAtual, cliqueMaximo);
 
     // ------ Mostra na tela ------
-    displayResult("Busca Exaustiva Global", cliqueMaximo);
+    displayResult("Busca Exaustiva OMP", cliqueMaximo);
 
     return 0;
 }
