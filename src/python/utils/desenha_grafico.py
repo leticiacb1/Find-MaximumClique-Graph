@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def desenha_grafico_comparacao(filename, title, list_x,list_y, list_labels):
+def desenha_grafico_comparacao(filename, title, x_label, y_label, list_x,list_y, list_labels):
     '''
         Desenha e salva um grafico de comparação entre algorítimos
     '''
@@ -11,8 +11,8 @@ def desenha_grafico_comparacao(filename, title, list_x,list_y, list_labels):
     for i in range(len(list_x)):
         plt.plot(list_x, list_y[i], label = list_labels[i])
 
-    plt.xlabel(' N° Vertices ')
-    plt.ylabel(' Time (s) ')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
 
     plt.title(title)
 
