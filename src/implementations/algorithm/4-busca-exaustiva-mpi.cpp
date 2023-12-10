@@ -80,17 +80,16 @@ void EncontrarCliqueMaximoGlobal(vector<vector<int>>& grafo, vector<int>& candid
 int main(int argc, char** argv) {
 
     // ------ Parametros ------
-   if(argc != 3 ){
-      cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 3 argumentos | Recebeu = " << argc << " argumentos \n";
-      return 1;
-    }
-
+  
     string nomeArquivo = argv[1];
     int numVertices = stoi(argv[2]);
 
     vector<vector<int>> grafo;
     vector<int> cliqueMaximoGlobal, cliqueMaximoParcial;
 
+    // Declara variáveis de tempo
+    chrono::high_resolution_clock::time_point start;
+    chrono::high_resolution_clock::time_point end;
 
     // ------ Instancia MPI ------
 
@@ -102,6 +101,12 @@ int main(int argc, char** argv) {
 
 
     if(rank == 0 ){
+
+      if(argc != 3 ){
+        cout << " [ERROR] Qunatidade errada de argumentos. Esperado = 3 argumentos | Recebeu = " << argc << " argumentos \n";
+        return 1;
+      }
+
       start = chrono::high_resolution_clock::now();
 
       // ------ Processo Pai ------
@@ -163,7 +168,7 @@ int main(int argc, char** argv) {
       // ------ Mostra na tela ------
       displayResult("Busca Exaustiva MPI", cliqueMaximo);
 
-      auto end = chrono::high_resolution_clock::now();
+      end = chrono::high_resolution_clock::now();
       chrono::duration<double> delta = end - start;
 
       cout << "\n [TIMER] " << delta.count() << " segundos." << endl;
