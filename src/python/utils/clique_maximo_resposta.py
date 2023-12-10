@@ -23,6 +23,7 @@ def clique_maximo_resposta(nome_arquivo, debug = False):
         print("\n > Clique máxima encontrada:", clique_maxima)
         print("\n > Clique máxima tamanho:", len(clique_maxima))
 
+    return clique_maxima
 
 
 if __name__ == "__main__":
