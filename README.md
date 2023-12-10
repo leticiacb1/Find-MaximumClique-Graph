@@ -20,13 +20,20 @@ Portanto, a resolução eficiente do problema da clique máxima tem aplicações
 
 Siga as instruções contidas no notebook `relatorio_projeto.ipynb`.
 
-Para compreender melhor o contexto do presente projeto confira o notebook `questionario_projeto.ipynb`
+Para compreender melhor o contexto do presente projeto confira o notebook `questionario_projeto.ipynb`.
 
 Os arquivos arquivos que coném a implmenetação dos algorítimos estão contidos na pasta `src/implementations
 /algorithm/`.
 
 Demais arquivos auxiliares (.py e .cpp) encontram-se nas pastas `src/implementations
 /algorithm/utils` e `src/python
-/utils/`
+/utils/`.
 
-@2023, Insper. Sétimo Semestre, Engenharia da Computação.
+<br>
+<br>
+<br>
+<br>
+
+<div align="center">
+  @2023, Insper. Sétimo Semestre, Engenharia da Computação.
+</div>
