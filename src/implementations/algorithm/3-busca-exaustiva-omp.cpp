@@ -45,11 +45,11 @@ vector<int> addCandidatos(vector<vector<int>> &grafo, int &v, vector<int> &candi
 
     vector<int> novosCandidatos;
 
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (int u : candidatos) {
 
         if (grafo[v][u] == 1) {
-            #pragma omp critical
+            // #pragma omp critical
             {
               novosCandidatos.push_back(u);
             }
