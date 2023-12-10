@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
     vector<int> cliqueAtual;
     vector<int> cliqueMaximo;
 
-    omp_set_num_threads(8);
+    omp_set_num_threads(4);
     EncontrarCliqueMaximoGlobal(grafo, candidatosInicias, cliqueAtual, cliqueMaximo);
 
     // ------ Mostra na tela ------
