@@ -1,5 +1,6 @@
 
 from clique_maximo_resposta import clique_maximo_resposta
+from processa_stdout import pega_tamanho, pega_vertices_max_clique
 import subprocess
 import pandas as pd
 
