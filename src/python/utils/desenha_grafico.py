@@ -1,14 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def desenha_grafico_comparacao(filename, title, x_label, y_label, list_x,list_y, list_labels):
+def desenha_grafico(filename, title, x_label, y_label, list_x,list_y, list_labels):
     '''
         Desenha e salva um grafico de comparação entre algorítimos
     '''
 
-    print(len(list_x))
-    print(list_y)
-    for i in range(len(list_x)):
+    for i in range(len(list_y)):
         plt.plot(list_x, list_y[i], label = list_labels[i])
 
     plt.xlabel(x_label)
