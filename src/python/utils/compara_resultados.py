@@ -26,7 +26,7 @@ def compara_resultados(lista_vertices, lista_commandos, algoritimos, arquivo_csv
   lista_vertices_df = []
 
   for command , algoritimo in zip(lista_commandos, algoritimos):
-    for vertices in lista_de_vertices:
+    for vertices in lista_vertices:
         calculado, esperado = calcula_esperado_e_calculado(command)
 
         lista_valores_calculados.append(calculado)
