@@ -23,6 +23,5 @@ void displayResult(string choose_algorithm, vector<int> cliqueMaximo){
         }
     }
 
-    cout << "] \n";
     cout << "\n > Tamanho : " << cliqueMaximo.size();
 }
