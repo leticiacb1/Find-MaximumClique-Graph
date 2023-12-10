@@ -5,39 +5,10 @@
 #include<algorithm>
 #include <omp.h>
 
+#include "../utils/display-result.h"
+#include "../utils/ler-grafo.h"
+
 using namespace std;
-
-// ---------------------------------------------------------------------------
-// ----------------------------- LER GRAFO -----------------------------------
-// ---------------------------------------------------------------------------
-
-vector<vector<int>> LerGrafo(string& nomeArquivo, int& numVertices) {
-    /*
-    * Ler o grafo escrito em um arquivo .txt
-    */
-
-    ifstream arquivo(nomeArquivo);
-    int numArestas;
-    arquivo >> numVertices >> numArestas;
-
-    vector<vector<int>> grafo(numVertices, vector<int>(numVertices, 0));
-
-    #pragma omp parallel for
-    for (int i = 0; i < numArestas; ++i) {
-        int u, v;
-
-        #pragma omp critical
-        {
-          arquivo >> u >> v;
-        }
-
-        grafo[u - 1][v - 1] = 1;
-        grafo[v - 1][u - 1] = 1;  // O grafo é não direcionado
-    }
-
-    arquivo.close();
-    return grafo;
-}
 
 // ---------------------------------------------------------------------------
 // -------------------------- CLIQUE MÁXIMA ----------------------------------
@@ -118,20 +89,6 @@ void EncontrarCliqueMaximoGlobal(vector<vector<int>>& grafo, vector<int>& candid
 // ------------------------------- MAIN --------------------------------------
 // ---------------------------------------------------------------------------
 
-void display_result(string choose_algorithm, vector<int> cliqueMaxima){
-    /*
-    * Mostra resultado do algorítimo na tela
-    */
-
-    cout << " ===== [" + choose_algorithm + "] ===== \n";
-    cout << "\n > Clique Máxima encontrada : [";
-    for (auto &el : cliqueMaxima) {
-      cout << el+1 << " ";
-    }
-    cout << "] \n";
-    cout << "\n > Tamanho : " << cliqueMaxima.size();
-}
-
 int main(int argc, char* argv[]) {
 
     if(argc != 3 ){
@@ -158,7 +115,7 @@ int main(int argc, char* argv[]) {
     EncontrarCliqueMaximoGlobal(grafo, candidatosInicias, cliqueAtual, cliqueMaximo);
 
     // ------ Mostra na tela ------
-    display_result("Busca Exaustiva Global", cliqueMaximo);
+    displayResult("Busca Exaustiva Global", cliqueMaximo);
 
     return 0;
 }
