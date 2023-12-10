@@ -7,7 +7,7 @@ def desenha_grafico(filename, title, x_label, y_label, list_x,list_y, list_label
     '''
 
     for i in range(len(list_y)):
-        plt.plot(list_x, list_y[i], label = list_labels[i])
+        plt.plot(list_x, list_y[i], marker='o', linestyle='-' , alpha=0.7,  markeredgecolor='black', size = 4, label = list_labels[i])
 
     plt.xlabel(x_label)
     plt.ylabel(y_label)
