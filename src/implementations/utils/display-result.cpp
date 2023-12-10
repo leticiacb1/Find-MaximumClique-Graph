@@ -13,10 +13,16 @@ void displayResult(string choose_algorithm, vector<int> cliqueMaximo){
     */
 
     cout << " ===== [" + choose_algorithm + "] ===== \n";
-    cout << "\n > Clique Máxima encontrada : [";
-    for (auto &el : cliqueMaximo) {
-      cout << el+1 << " ";
+    cout << "\n > Clique Máxima encontrada : ";
+
+    for (size_t i = 0; i < cliqueMaximo.size(); ++i) {
+        std::cout << cliqueMaximo[i] + 1;
+
+        if (i < cliqueMaximo.size() - 1) {
+            std::cout << ", ";
+        }
     }
+
     cout << "] \n";
     cout << "\n > Tamanho : " << cliqueMaximo.size();
 }
